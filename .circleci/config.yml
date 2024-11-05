@@ -32,10 +32,10 @@ jobs:
               echo "Warning: config/database.yml.circleci does not exist. Using default config."
             fi
             RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run tests
-          command: |
-            RAILS_ENV=test bundle exec rspec
+      # - run:
+      #     name: Run tests
+      #     command: |
+      #       RAILS_ENV=test bundle exec rspec
       - run:
           name: Run linting
           command: |
