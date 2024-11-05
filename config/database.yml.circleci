@@ -12,7 +12,6 @@ development:
   password: rails 
   host: localhost
   port: 5432
-  POSTGRES_HOST_AUTH_METHOD=trust
 
 test:
   <<: *default

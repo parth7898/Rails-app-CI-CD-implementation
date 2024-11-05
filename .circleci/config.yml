@@ -11,6 +11,10 @@ jobs:
     docker:
       - image: circleci/ruby:3.0.0
       - image: circleci/postgres:13  # Add PostgreSQL service
+        environment:
+          POSTGRES_USER: rails
+          POSTGRES_DB: myapp_test
+          POSTGRES_PASSWORD: rails
     steps:
       - checkout
       - run:
