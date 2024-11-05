@@ -3,14 +3,16 @@ version: 2.1
 executors:
   ruby-executor:
     docker:
-      - image: circleci/ruby:3.0.0  # Ruby 3.0 image
+      - image: circleci/ruby:3.0
     working_directory: ~/myapp
 
 jobs:
   build:
-    executor: ruby-executor
+    docker:
+      - image: circleci/ruby:3.0
+      - image: circleci/postgres:13  # Add PostgreSQL service
     steps:
-      - checkout  # Check out the code from the repository
+      - checkout
       - run:
           name: Install dependencies
           command: |
@@ -19,16 +21,20 @@ jobs:
       - run:
           name: Set up database
           command: |
-            cp config/database.yml.circleci config/database.yml  # Use CircleCI-specific database config if needed
+            if [ -f config/database.yml.circleci ]; then
+              cp config/database.yml.circleci config/database.yml
+            else
+              echo "Warning: config/database.yml.circleci does not exist. Using default config."
+            fi
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run tests
           command: |
-            RAILS_ENV=test bundle exec rspec  # Replace with your test command if different
+            RAILS_ENV=test bundle exec rspec
       - run:
           name: Run linting
           command: |
-            bundle exec rubocop  # Run your linter
+            bundle exec rubocop
 
 workflows:
   version: 2
