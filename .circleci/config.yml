@@ -3,7 +3,7 @@ version: 2.1
 executors:
   ruby-executor:
     docker:
-      - image: circleci/ruby:3.0.3  # Ruby 3.0 image
+      - image: circleci/ruby:3.0.0  # Ruby 3.0 image
     working_directory: ~/myapp
 
 jobs:
