@@ -11,6 +11,10 @@ jobs:
     docker:
       - image: circleci/ruby:3.0.0
       - image: circleci/postgres:13
+        environment:
+            POSTGRES_DB: my_crud_app_test
+            POSTGRES_USER: rails
+            POSTGRES_PASSWORD: rails
       
     steps:
       - checkout
