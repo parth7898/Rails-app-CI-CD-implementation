@@ -4,6 +4,6 @@ test:
   database: myapp_test
   pool: 5
   username: circleci
-  password: rails
+  password: circleci
   host: 127.0.0.1 
   port: 5432
