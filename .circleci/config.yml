@@ -9,7 +9,7 @@ executors:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.0
+      - image: circleci/ruby:3.0.0
       - image: circleci/postgres:13  # Add PostgreSQL service
     steps:
       - checkout
