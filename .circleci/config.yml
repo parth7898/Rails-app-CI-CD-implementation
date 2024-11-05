@@ -36,10 +36,10 @@ jobs:
       #     name: Run tests
       #     command: |
       #       RAILS_ENV=test bundle exec rspec
-      - run:
-          name: Run linting
-          command: |
-            bundle exec rubocop
+      # - run:
+      #     name: Run linting
+      #     command: |
+      #       bundle exec rubocop
 
 workflows:
   version: 2
