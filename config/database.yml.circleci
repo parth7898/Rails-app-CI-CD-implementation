@@ -3,6 +3,6 @@ test:
   encoding: unicode
   database: myapp_test
   pool: 5
-  username: circleci
-  password: circleci
-  host: db
+  username: root
+  password: ''
+  host: 127.0.0.1
